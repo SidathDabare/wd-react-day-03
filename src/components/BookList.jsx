@@ -8,7 +8,14 @@ export class BookList extends Component {
         return (
             <Container className='col-12 d-flex flex-wrap justify-content-between align-items-center bg-dark'>
                 {arrayOfBooks.map((book) => (
-                    <SingleBook key={book.asin} image={book.img} name={book.title} price={book.price} />
+                    <SingleBook
+                        key={book.asin}
+                        image={book.img}
+                        name={book.title}
+                        price={book.price}
+                        asin={book.asin}
+                        category={book.category}
+                    />
                 ))}
 
             </Container>
