@@ -1,38 +1,44 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, Container, Form, ListGroup, NavLink } from 'react-bootstrap'
+import CommentArea from './CommentArea'
 
 const SingleBook = ({ image, name, price, asin, category }) => {
     return (
-        <Card
-            className='col-6 col-sm-4 col-md-3 m-1 d-inline-block p-0'
-            style={{
-                maxWidth: '13rem',
-                height: "25rem",
-                backgroundSize: "contain",
-            }}>
-            <Card.Img
-                variant="top"
-                src={image}
-                style={{ width: '100%', maxHeight: "17rem", backgroundSize: "contain" }} />
-            <Card.Body
+        <Container style={{ width: "27rem", display: "flex", backgroundColor: "gray", margin: "5px" }}>
+            <Card
+                className='col-6 p-0'
                 style={{
-                    position: "absolute",
-                    maxWidth: "13rem",
-                    height: "8rem",
-                    bottom: 0,
-                    lineHeight: "10px",
-                    backgroundColor: "white"
-                }}
-            >
-                <Card.Title className='text-truncate text-secondary'>{name}</Card.Title>
-                <Card.Title>$ {price}</Card.Title>
-                <Card.Text className='text-truncate'>
-                    <small className='font-weight-bold text-secondary'>Id : {asin}</small><br></br>
-                    <small className='font-weight-bold  text-secondary' >Category : {category}</small>
-                </Card.Text>
-                {/* <Button variant="primary">ADD TO CARD</Button> */}
-            </Card.Body>
-        </Card >
+                    maxWidth: '13rem',
+                    height: "25rem",
+                    backgroundSize: "contain",
+                }}>
+                <Card.Img
+                    className='p-0'
+                    variant="top"
+                    src={image}
+                    style={{ width: '100%', backgroundSize: "contain" }} />
+                <Card.Body
+                    style={{
+                        position: "absolute",
+                        maxWidth: "100%",
+                        bottom: 0,
+                        lineHeight: "15px",
+                        backgroundColor: "white",
+                        padding: "0 5px"
+                    }}
+                >
+                    <Card.Text className='text-secondary text-truncate '>{name}</Card.Text>
+                    <Card.Title className='p-0'>$ {price}</Card.Title>
+                    <Card.Text className='text-truncate py-0'>
+                        {/* <small className='font-weight-bold text-secondary'>Id : {asin}</small><br></br> */}
+                        <small className='font-weight-bold  text-secondary' >Category : {category}</small>
+                    </Card.Text>
+
+                </Card.Body>
+
+            </Card >
+            <CommentArea bookId={asin} />
+        </Container>
     )
 }
 
